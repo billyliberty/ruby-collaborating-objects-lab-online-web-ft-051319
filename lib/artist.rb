@@ -7,7 +7,10 @@ class Artist
   def initialize(name)
     @name = name
     @songs = []
-    save
+  end
+
+  def save
+    @@all << self
   end
 
   def self.all
@@ -30,8 +33,6 @@ class Artist
   def self.create(name)
     self.new(name).tap {|artist| artist.save}
   end
-
-  
 
   def print_songs
     songs.each {|song| puts song.name}
